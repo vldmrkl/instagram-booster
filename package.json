@@ -1,0 +1,23 @@
+{
+  "name": "instagram-booster",
+  "version": "1.0.0",
+  "description": "Node app for increasing the number of Instagram followers by unfollowing and following popular accounts periodically.",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/klymenkoo/instagram-booster.git"
+  },
+  "author": "Volodymyr Klymenko",
+  "license": "MIT",
+  "dependencies": {
+    "dotenv": "^6.1.0",
+    "instagram-private-api": "^0.6.7"
+  },
+  "bugs": {
+    "url": "https://github.com/klymenkoo/instagram-booster/issues"
+  },
+  "homepage": "https://github.com/klymenkoo/instagram-booster#readme"
+}
