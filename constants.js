@@ -1,14 +1,12 @@
 const ACCOUNTS = [
-    'tech_insider',
-    'harvard_business_review',
-    'ted',
-    'techcrunch',
-    'entrepreneur',
-    'forbes',
-    'successmagazine',
-    'businessinsider',
-    'thestartup.co',
-    'foundr',
+    'thenotoriousmma',
+    'therock',
+    'cristiano',
+    'joerogan',
+    'leomessi',
+    'kevinhart4real',
+    'schwarzenegger',
+    'danawhite',
     'garyvee'
 ];
 
