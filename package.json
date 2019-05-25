@@ -14,7 +14,7 @@
   "license": "MIT",
   "dependencies": {
     "dotenv": "^6.1.0",
-    "instagram-private-api": "^0.6.7"
+    "instagram-private-api": "^1.9.0"
   },
   "bugs": {
     "url": "https://github.com/klymenkoo/instagram-booster/issues"
