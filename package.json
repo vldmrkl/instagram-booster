@@ -4,6 +4,7 @@
   "description": "Node app for increasing the number of Instagram followers by unfollowing and following popular accounts periodically.",
   "main": "app.js",
   "scripts": {
+    "start": "node app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
