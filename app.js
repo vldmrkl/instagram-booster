@@ -1,41 +1,34 @@
 require('dotenv').config();
-
-const Client = require('instagram-private-api').V1;
-let device = new Client.Device(process.env.USERNAME);
-let storage = new Client.CookieFileStorage(__dirname + '/cookies/' + process.env.USERNAME + '.json');
-
+const instagramPrivateAPI = require('instagram-private-api');
+const IG = new instagramPrivateAPI.IgApiClient();
 const accounts = require('./constants');
 
-// from instagram-private-api
-function loginAndFollow(user) {
-    Client.Session.create(device, storage, process.env.USERNAME, process.env.PASSWORD)
-        .then(function (session) {
-            return [session, Client.Account.searchForUser(session, user)]
-        })
-        .spread(function (session, account) {
-            return Client.Relationship.create(session, account.id);
-        })
+IG.state.generateDevice(process.env.USERNAME);
+
+async function login() {
+  await IG.simulate.preLoginFlow();
+  const loggedInUser = await IG.account.login(
+    process.env.USERNAME,
+    process.env.PASSWORD,
+  );
 }
 
-// from instagram-private-api
-function loginAndUnfollow(user) {
-    Client.Session.create(device, storage, process.env.USERNAME, process.env.PASSWORD)
-        .then(function (session) {
-            return [session, Client.Account.searchForUser(session, user)]
-        })
-        .spread(function (session, account) {
-            return Client.Relationship.destroy(session, account.id);
-        })
+async function refollow(username) {
+  const userId = await IG.user.getIdByUsername(username);
+  await IG.friendship.destroy(userId);
+  IG.friendship.create(userId);
 }
 
-
-reFollow = () => {
-    accounts.forEach(account => {
-        loginAndUnfollow(account);
-        loginAndFollow(accounts);
-    });
+async function refollowAllAccounts() {
+  accounts.forEach((accountName) => refollow(accountName));
 }
 
-setInterval(() => {
-    reFollow();
-}, 3600000);
+(async function () {
+  const oneHourInMs = 3600000;
+  await login();
+
+  refollowAllAccounts();
+  setInterval(() => {
+    refollowAllAccounts();
+  }, oneHourInMs);
+})();
