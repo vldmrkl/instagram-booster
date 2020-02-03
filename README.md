@@ -1,8 +1,11 @@
 # instagram-booster
-Node app for increasing the number of Instagram followers by unfollowing and following popular accounts periodically.
+Node.js application for increasing the number of Instagram followers by unfollowing and following popular accounts periodically.
+
+# Warning
+As of July 2019, after running this program about a week, Instagram sends you a notification about a suspicious activity on your account and asks you to remove your credentials from 3rd-party services. If you don't comply with it, they would either shadowban or block your account.
 
 ### Publications
-* [Medium](https://medium.com/@volodymyrklymenko/how-50-lines-of-code-raised-a-thousand-of-followers-on-instagram-within-one-month-9f672c310c8c)
+* [vldmrkl.com](https://vldmrkl.com/how-50-lines-of-code-raised-a-thousand-followers-on-instagram-within-one-month/)
 * [RBC FutureMakers](http://www.rbc.com/futuremakers/#/commentary/how-50-lines-of-codes-raised-a-thousand-followers)
 
 ## Dependencies
